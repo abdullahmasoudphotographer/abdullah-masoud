@@ -6,6 +6,8 @@
     <title>Abdallah Masoud | Photographer</title>
     <!-- استدعاء خطوط جوجل (خط القاهرة) -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- استدعاء مكتبة الأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --bg-color: #121212;
@@ -74,6 +76,38 @@
             display: flex;
             align-items: center;
             gap: 8px;
+        }
+
+        /* تنسيق قسم الأيقونات */
+        .social-icons-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+            direction: ltr; /* لضبط اتجاه الأيقونات */
+        }
+
+        .social-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            background-color: var(--card-bg);
+            color: var(--text-light);
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: var(--gold);
+            color: #000;
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
         }
 
         .section-title {
@@ -339,10 +373,20 @@
         <h1>ABDALLAH MASOUD</h1>
         <p style="color: var(--text-muted); font-size: 1.2rem;">P H O T O G R A P H E R</p>
         
+        <!-- معلومات الدفع والتواصل -->
         <div class="contact-info">
             <div class="badge">WhatsApp: +20 10 10356451</div>
             <div class="badge">Vodafone Cash: +20 10 10356451</div>
             <div class="badge">InstaPay Accepted</div>
+        </div>
+
+        <!-- الأيقونات الاجتماعية -->
+        <div class="social-icons-container">
+            <!-- استبدل علامة # بروابط صفحاتك الحقيقية -->
+            <a href="#" class="social-icon" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://wa.me/201010356451" class="social-icon" target="_blank"><i class="fab fa-whatsapp"></i></a>
         </div>
     </header>
 
@@ -491,7 +535,7 @@
         <p>True Love Stories Never Have Endings.</p>
         <p style="color: var(--gold); font-weight: bold; margin-top: 5px;">Abdallah Masoud Photographer</p>
         
-        <!-- حقوق المطور (حسب طلبك) -->
+        <!-- حقوق المطور -->
         <div class="dev-credit">
             Developed by: <a href="https://wa.me/201109176051" target="_blank">Mahmoud Saeed ( BOPO ) - 01109176051</a>
         </div>
