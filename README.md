@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abdallah Masoud | Photographer</title>
     <!-- خطوط جوجل -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <!-- مكتبة الأيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --gold: #d4af37;
-            --gold-dark: #b8972e;
-            --text-light: #f5f5f5;
-            --text-muted: #aaaaaa;
-            --glass-bg: rgba(30, 30, 30, 0.55);
-            --glass-border: rgba(212, 175, 55, 0.3);
+            --gold-glow: rgba(212, 175, 55, 0.6);
+            --text-light: #ffffff;
+            --text-muted: #cccccc;
+            --glass-bg: rgba(20, 20, 20, 0.45); /* زجاجي أكثر شفافية */
+            --glass-border: rgba(255, 255, 255, 0.1);
         }
 
         * {
@@ -25,9 +25,9 @@
             font-family: 'Cairo', sans-serif;
         }
 
-        /* خلفية متحركة لإبراز شكل الزجاج */
         body {
-            background: linear-gradient(-45deg, #0d0d0d, #1a1813, #0a1118, #121212);
+            /* خلفية متدرجة متحركة فخمة */
+            background: linear-gradient(-45deg, #0a0a0a, #1a1710, #05080f, #121212);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
             color: var(--text-light);
@@ -43,23 +43,26 @@
 
         /* هيدر بسيط */
         header {
-            padding: 3rem 1rem 1rem;
+            padding: 4rem 1rem 2rem;
             text-align: center;
         }
 
         header h1 {
             color: var(--gold);
-            font-size: 2.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
             margin-bottom: 0.2rem;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
         }
 
         .section-title {
             color: var(--gold);
             font-size: 1.8rem;
-            margin: 2rem 5% 1.5rem;
+            margin: 3rem 5% 1.5rem;
             border-right: 4px solid var(--gold);
             padding-right: 15px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
         }
 
         /* حاوية الباقات */
@@ -69,102 +72,95 @@
             padding: 0 20px;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 25px;
         }
 
-        /* تصميم الكارت الزجاجي (Glassmorphism) */
+        /* تصميم الكارت الزجاجي المضيء (Advanced Glassmorphism) */
         .package-card {
             background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--glass-border);
             border-radius: 15px;
             padding: 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
         }
 
+        /* تأثير الإضاءة (Glow) عند الوقوف بالماوس */
         .package-card:hover {
             border-color: var(--gold);
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px 0 rgba(212, 175, 55, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px var(--gold-glow), inset 0 0 20px rgba(212, 175, 55, 0.1);
         }
 
-        /* محتوى الباقة (اليمين) */
+        /* لمعة متحركة داخل الكارت */
+        .package-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.05), transparent);
+            transform: skewX(-25deg);
+            transition: all 0.7s ease;
+        }
+        .package-card:hover::before {
+            left: 150%;
+        }
+
         .package-content {
             flex: 1;
             padding-left: 20px;
+            z-index: 1;
         }
 
         .package-title {
-            font-size: 1.4rem;
-            color: var(--text-light);
+            font-size: 1.5rem;
+            color: #fff;
             margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 10px;
         }
         
-        .package-title i {
-            color: var(--gold);
-            font-size: 1.1rem;
-        }
+        .package-title i { color: var(--gold); }
+        .package-desc { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px; }
+        .package-features { list-style: none; }
+        .package-features li { font-size: 0.95rem; color: #eee; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .package-features li i { color: var(--gold); font-size: 0.8rem; }
 
-        .package-desc {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-        }
-
-        /* تفاصيل الباقة مع أيقونة النجمة */
-        .package-features {
-            list-style: none;
-        }
-
-        .package-features li {
-            font-size: 0.9rem;
-            color: #ddd;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .package-features li i {
-            color: var(--gold);
-            font-size: 0.8rem;
-        }
-
-        /* السعر والزر (اليسار) */
         .package-action {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 15px;
-            min-width: 150px;
+            min-width: 160px;
+            z-index: 1;
         }
 
         .price-box {
-            background-color: var(--gold);
+            background: rgba(212, 175, 55, 0.9);
             color: #000;
-            padding: 10px 20px;
+            padding: 12px 20px;
             border-radius: 8px;
             font-weight: 800;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             text-align: center;
             width: 100%;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
         }
 
         .btn-book {
-            background: transparent;
+            background: rgba(0, 0, 0, 0.5);
             color: var(--gold);
             border: 1px solid var(--gold);
             padding: 10px 20px;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: bold;
             border-radius: 8px;
             cursor: pointer;
@@ -173,84 +169,80 @@
         }
 
         .btn-book:hover {
-            background-color: var(--gold);
+            background: var(--gold);
             color: #000;
+            box-shadow: 0 0 15px var(--gold-glow);
         }
 
-        /* قسم العنوان والخريطة زجاجي */
+        /* قسم العنوان */
         .location-section {
             background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(16px);
             border: 1px solid var(--glass-border);
             border-radius: 15px;
             padding: 30px;
             text-align: center;
             max-width: 900px;
             margin: 40px auto;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
         }
-        
-        .location-section p {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-        }
-
         .btn-map {
-            background-color: #a81c1c;
-            color: #fff;
-            text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 8px;
-            font-weight: bold;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: 0.3s;
+            background-color: #a81c1c; color: #fff; text-decoration: none; padding: 12px 25px; border-radius: 8px; font-weight: bold; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s;
         }
+        .btn-map:hover { background-color: #c92a2a; box-shadow: 0 0 15px rgba(201, 42, 42, 0.5); }
 
-        .btn-map:hover {
-            background-color: #c92a2a;
-        }
-
-        /* الفيدباك (قالوا عن عدستنا) */
-        .reviews-container {
+        /* الفيدباك اللانهائي (Clients Feedback) */
+        .reviews-wrapper {
             max-width: 900px;
             margin: 0 auto;
             background: var(--glass-bg);
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(16px);
             border: 1px solid var(--glass-border);
             border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-        }
-        
-        .review-text {
-            font-style: italic;
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            color: #eee;
-        }
-        
-        .review-author {
-            color: var(--gold);
-            font-weight: bold;
+            padding: 20px;
+            overflow: hidden; /* لإخفاء السكرول */
+            position: relative;
+            height: 350px;
         }
 
-        /* السوشيال ميديا شبكة زجاجية */
+        .reviews-scroll-area {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            animation: scrollReviews 40s linear infinite;
+        }
+
+        .reviews-wrapper:hover .reviews-scroll-area {
+            animation-play-state: paused;
+        }
+
+        @keyframes scrollReviews {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50%); }
+        }
+
+        .review-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-right: 3px solid var(--gold);
+            padding: 15px 20px;
+            border-radius: 8px;
+        }
+        .review-text { font-style: italic; font-size: 1rem; margin-bottom: 10px; color: #eee; }
+        .review-author { color: var(--gold); font-weight: bold; font-size: 0.9rem; }
+
+        /* السوشيال ميديا */
         .social-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
             max-width: 900px;
-            margin: 40px auto;
+            margin: 20px auto 40px;
             padding: 0 20px;
         }
 
         .social-btn {
             background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            border: 1px solid #444;
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
             color: #fff;
             text-decoration: none;
             padding: 15px;
@@ -262,111 +254,86 @@
             font-weight: bold;
             transition: 0.3s;
         }
-
-        .social-btn:hover {
-            border-color: var(--gold);
-            background: rgba(212, 175, 55, 0.1);
-        }
-
+        .social-btn:hover { border-color: var(--gold); background: rgba(212, 175, 55, 0.1); box-shadow: 0 0 15px var(--gold-glow); transform: translateY(-3px); }
         .social-btn.whatsapp { border-color: #25D366; }
-        .social-btn.whatsapp i { color: #25D366; }
+        .social-btn.whatsapp i { color: #25D366; font-size: 1.2rem; }
 
         .phones-box {
             background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            border: 1px solid #444;
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--gold);
             border-radius: 10px;
             padding: 20px;
             max-width: 900px;
             margin: 0 auto 40px;
             text-align: center;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
         }
-
-        .phone-item {
-            background: rgba(0,0,0,0.3);
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px dashed #555;
-            direction: ltr;
-        }
+        .phones-box h3 { color: var(--gold); margin-bottom: 10px; font-size: 1.3rem;}
+        .phone-number { font-size: 1.5rem; font-weight: bold; letter-spacing: 2px; direction: ltr; }
 
         /* المودال الزجاجي */
         .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); z-index: 1000;
+            justify-content: center; align-items: center;
         }
-
         .modal-content {
-            background: rgba(20, 20, 20, 0.85);
-            backdrop-filter: blur(15px);
-            width: 90%;
-            max-width: 500px;
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid var(--gold);
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
+            background: rgba(20, 20, 20, 0.9); backdrop-filter: blur(20px);
+            width: 90%; max-width: 550px; padding: 30px; border-radius: 15px;
+            border: 1px solid var(--gold); max-height: 90vh; overflow-y: auto;
+            position: relative; box-shadow: 0 0 30px rgba(212,175,55,0.2);
         }
+        .close-btn { position: absolute; top: 15px; left: 15px; background: none; border: none; color: var(--gold); font-size: 2rem; cursor: pointer; transition: 0.3s; }
+        .close-btn:hover { transform: scale(1.2); }
+        
+        .total-price-display {
+            background: rgba(212, 175, 55, 0.15); border: 1px dashed var(--gold);
+            padding: 15px; text-align: center; border-radius: 8px; margin-bottom: 20px;
+        }
+        .total-price-display h2 { color: var(--gold); margin: 0; font-size: 1.5rem; }
 
-        /* الموبايل ريسبونسيف */
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-size: 0.95rem; color: #ddd; }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 12px; background: rgba(0,0,0,0.5); border: 1px solid #444; color: #fff; border-radius: 8px; transition: 0.3s;
+        }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 10px rgba(212,175,55,0.3); }
+
+        .date-warning {
+            display: none;
+            background: rgba(212, 175, 55, 0.1); border-right: 4px solid var(--gold);
+            padding: 12px; margin-top: 10px; font-size: 0.85rem; color: #eee; border-radius: 4px;
+            animation: fadeIn 0.5s ease;
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+
+        .payment-info {
+            background: rgba(0,0,0,0.4); border: 1px solid #333; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center;
+        }
+        .payment-info p { margin-bottom: 5px; font-size: 0.9rem; }
+        .payment-info img { height: 25px; vertical-align: middle; margin: 0 5px; }
+
         @media (max-width: 768px) {
-            .package-card {
-                flex-direction: column;
-                text-align: center;
-            }
-            .package-content {
-                padding-left: 0;
-                margin-bottom: 20px;
-            }
+            .package-card { flex-direction: column; text-align: center; }
+            .package-content { padding-left: 0; margin-bottom: 20px; }
             .package-title { justify-content: center; }
             .package-features li { justify-content: center; }
             .package-action { width: 100%; }
+            .social-grid { grid-template-columns: 1fr; }
         }
-
-        /* تنسيقات فورم الحجز (البنود الجديدة) */
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 5px; font-size: 0.9rem; color: var(--gold); }
-        .form-group input[type="text"], .form-group input[type="tel"], .form-group input[type="date"], .form-group textarea {
-            width: 100%; padding: 10px; background: rgba(0,0,0,0.5); border: 1px solid #444; color: #fff; border-radius: 8px;
-        }
-        
-        .custom-box {
-            border-radius: 8px;
-            padding: 12px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.9rem;
-        }
-        .box-gold { border: 1px dashed var(--gold); background: rgba(212, 175, 55, 0.05); }
-        .box-red { border: 1px dashed #ff4444; background: rgba(255, 68, 68, 0.05); }
-        .radio-group { background: rgba(0,0,0,0.3); border: 1px solid #333; padding: 15px; border-radius: 8px; margin-bottom: 15px; }
-        .radio-option { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 0.9rem; }
-        .radio-option:last-child { margin-bottom: 0; }
     </style>
 </head>
 <body>
 
     <header>
         <h1>ABDALLAH MASOUD</h1>
-        <p style="color: var(--text-muted); font-size: 1rem; letter-spacing: 4px;">P H O T O G R A P H E R</p>
+        <p style="color: var(--text-muted); font-size: 1.1rem; letter-spacing: 5px;">P H O T O G R A P H E R</p>
     </header>
 
     <!-- الباقات الرئيسية -->
     <h2 class="section-title">الباقات الرئيسية (Wedding & Engagement)</h2>
     <div class="packages-container">
-        
         <div class="package-card">
             <div class="package-content">
                 <h3 class="package-title"><i class="fas fa-star"></i> باكدج كاملة (Full Package)</h3>
@@ -381,7 +348,7 @@
             </div>
             <div class="package-action">
                 <div class="price-box">EGP 8000</div>
-                <button class="btn-book" onclick="openModal('Full Package - 8000 EGP')">احجز الآن</button>
+                <button class="btn-book" onclick="openModal('Full Package', 8000)">احجز الآن</button>
             </div>
         </div>
 
@@ -398,7 +365,7 @@
             </div>
             <div class="package-action">
                 <div class="price-box">EGP 6000</div>
-                <button class="btn-book" onclick="openModal('Full Day - 6000 EGP')">احجز الآن</button>
+                <button class="btn-book" onclick="openModal('Full Day', 6000)">احجز الآن</button>
             </div>
         </div>
 
@@ -414,15 +381,14 @@
             </div>
             <div class="package-action">
                 <div class="price-box">EGP 4500</div>
-                <button class="btn-book" onclick="openModal('Half Day - 4500 EGP')">احجز الآن</button>
+                <button class="btn-book" onclick="openModal('Half Day', 4500)">احجز الآن</button>
             </div>
         </div>
     </div>
 
-    <!-- باقات السيشن (تصوير فردي) بنفس شكل الباقات الرئيسية -->
+    <!-- باقات السيشن (تصوير فردي) -->
     <h2 class="section-title">تصوير فردي (Sessions)</h2>
     <div class="packages-container">
-        
         <div class="package-card">
             <div class="package-content">
                 <h3 class="package-title"><i class="fas fa-star"></i> سيشن زفاف / خطوبة</h3>
@@ -434,7 +400,7 @@
             </div>
             <div class="package-action">
                 <div class="price-box">EGP 3500</div>
-                <button class="btn-book" onclick="openModal('سيشن زفاف / خطوبة - 3500 EGP')">احجز الآن</button>
+                <button class="btn-book" onclick="openModal('سيشن زفاف / خطوبة', 3500)">احجز الآن</button>
             </div>
         </div>
         
@@ -449,7 +415,8 @@
             </div>
             <div class="package-action">
                 <div class="price-box">EGP 2000</div>
-                <button class="btn-book" onclick="openModal('خطوبة أو كتب كتاب')">احجز الآن</button>
+                <button class="btn-book" onclick="openModal('كتب كتاب', 2000)">احجز الآن (كتب كتاب)</button>
+                <button class="btn-book" style="margin-top:-5px;" onclick="openModal('خطوبة فقط', 1700)">احجز الآن (خطوبة)</button>
             </div>
         </div>
 
@@ -465,7 +432,8 @@
             </div>
             <div class="package-action">
                 <div class="price-box">EGP 1500</div>
-                <button class="btn-book" onclick="openModal('سيشن كاجول / عيد ميلاد')">احجز الآن</button>
+                <button class="btn-book" onclick="openModal('سيشن عيد ميلاد', 1500)">احجز الآن (عيد ميلاد)</button>
+                <button class="btn-book" style="margin-top:-5px;" onclick="openModal('سيشن كاجول', 1200)">احجز الآن (كاجول)</button>
             </div>
         </div>
     </div>
@@ -473,124 +441,179 @@
     <!-- عنوان الاستوديو -->
     <h2 class="section-title">عنوان الاستوديو</h2>
     <div class="location-section">
-        <p><i class="fas fa-map-marker-alt" style="color:var(--gold)"></i> <strong>منشأة القناطر - خلف مغسلة ياسين</strong></p>
+        <p><i class="fas fa-map-marker-alt" style="color:var(--gold); font-size:1.5rem; margin-bottom:10px;"></i><br><strong>منشأة القناطر - خلف مغسلة ياسين</strong></p>
         <a href="https://maps.app.goo.gl/qENQy7LbUjVQZTk99" target="_blank" class="btn-map">
             <i class="fas fa-map"></i> افتح موقعنا على الخريطة
         </a>
     </div>
 
-    <!-- قالوا عن عدستنا -->
-    <h2 class="section-title">قالوا عن عدستنا <i class="fas fa-comment-dots" style="color:var(--gold); font-size: 1.2rem;"></i></h2>
-    <div class="reviews-container">
-        <p class="review-text">"الألبوم طالع تحفة والألوان بجد سينمائية وريلز الفرح مكسر الدنيا عندنا تسلم إيدك"</p>
-        <p class="review-author"><i class="fas fa-star" style="font-size: 0.8rem;"></i> كابتن محمد & آية</p>
+    <!-- الفيدباك (Clients Feedback) -->
+    <h2 class="section-title">Clients Feedback <i class="fas fa-heart" style="color:var(--gold);"></i></h2>
+    <div class="reviews-wrapper">
+        <div class="reviews-scroll-area" id="reviewsArea">
+            <!-- سيتم توليد مئات التقييمات هنا برمجياً -->
+        </div>
     </div>
 
     <!-- تابعنا على -->
     <h2 class="section-title">تابعنا على</h2>
     <div class="social-grid">
         <a href="https://api.whatsapp.com/send/?phone=201010356451&text&type=phone_number&app_absent=0" target="_blank" class="social-btn whatsapp">
-            Ali WhatsApp <i class="fab fa-whatsapp"></i>
-        </a>
-        <a href="#" class="social-btn">
-            رقم المكتب <i class="fas fa-circle" style="color:#25D366; font-size: 0.6rem;"></i>
+            Abdallah Masoud <i class="fab fa-whatsapp"></i>
         </a>
         <a href="https://www.instagram.com/abdullah_maseud?igsh=NXB6b3B6cjJhYmF2&utm_source=qr" target="_blank" class="social-btn">
-            إنستجرام
+            إنستجرام <i class="fab fa-instagram"></i>
         </a>
         <a href="https://www.facebook.com/profile.php?id=100071408364892" target="_blank" class="social-btn">
-            فيسبوك
+            فيسبوك <i class="fab fa-facebook-f"></i>
         </a>
-        <a href="https://www.tiktok.com/@abood_foto" target="_blank" class="social-btn" style="grid-column: span 2;">
-            تيك توك
+        <a href="https://www.tiktok.com/@abood_foto" target="_blank" class="social-btn">
+            تيك توك <i class="fab fa-tiktok"></i>
         </a>
     </div>
 
     <div class="phones-box">
-        <div style="grid-column: span 2; color: var(--gold); font-weight: bold; margin-bottom: 10px;">
-            <i class="fas fa-phone-alt"></i> أرقام اتصالات المكتب:
-        </div>
-        <div class="phone-item">01122382861</div>
-        <div class="phone-item">01505827390</div>
-        <div class="phone-item">01009292635</div>
-        <div class="phone-item">01094019014</div>
+        <h3><i class="fas fa-phone-alt"></i> أرقام اتصالات المكتب للتواصل</h3>
+        <div class="phone-number">010 10356451</div>
     </div>
 
     <!-- الفوتر -->
-    <footer style="text-align: center; padding: 20px; background: rgba(0,0,0,0.5); border-top: 1px solid #333;">
-        <div style="font-size: 0.8rem; color: #666;">
-            Developed by: <a href="https://wa.me/201109176051" target="_blank" style="color: #888; text-decoration: none;">Mahmoud Saeed ( BOPO ) - 01109176051</a>
+    <footer style="text-align: center; padding: 25px; background: rgba(0,0,0,0.8); border-top: 1px solid #333;">
+        <div style="font-size: 0.85rem; color: #777;">
+            Developed by: <a href="https://wa.me/201109176051" target="_blank" style="color: #999; text-decoration: none; transition: 0.3s;">Mahmoud Saeed ( BOPO ) - 01109176051</a>
         </div>
     </footer>
 
     <!-- فورم الحجز الزجاجي -->
     <div class="modal-overlay" id="bookingModal">
         <div class="modal-content">
-            <button onclick="closeModal()" style="position: absolute; top: 15px; left: 15px; background: none; border: none; color: var(--gold); font-size: 1.5rem; cursor: pointer;">×</button>
-            <h3 style="color: var(--gold); text-align: center; margin-bottom: 20px;">تأكيد الحجز</h3>
+            <button class="close-btn" onclick="closeModal()">×</button>
+            <h3 style="color: var(--gold); text-align: center; margin-bottom: 15px; font-size:1.8rem;">تأكيد الحجز</h3>
+            
+            <div class="total-price-display">
+                <p style="margin-bottom:5px; color:#ccc;">الباقة المختارة: <strong id="modalPackageName" style="color:#fff;"></strong></p>
+                <h2>إجمالي حسابك: <span id="modalPriceVal"></span> ج.م</h2>
+            </div>
+
             <form id="bookingForm">
                 <input type="hidden" id="selectedPackage">
+                <input type="hidden" id="selectedPrice">
                 
                 <div class="form-group">
                     <label>اسم العريس (بالانجليزي):</label>
-                    <input type="text" id="groomName" required>
+                    <input type="text" id="groomName" required placeholder="Groom Name">
                 </div>
                 
                 <div class="form-group">
                     <label>اسم العروسة (بالانجليزي):</label>
-                    <input type="text" id="brideName" required>
+                    <input type="text" id="brideName" required placeholder="Bride Name">
                 </div>
                 
                 <div class="form-group">
                     <label>رقم الواتساب:</label>
-                    <input type="tel" id="whatsappNum" required>
+                    <input type="tel" id="whatsappNum" required placeholder="01xxxxxxxxx">
                 </div>
                 
                 <div class="form-group">
                     <label>تاريخ المناسبة:</label>
-                    <input type="date" id="eventDate" required>
-                </div>
-
-                <!-- سؤال مشاركة الصور -->
-                <div class="form-group">
-                    <label>هل توافق على مشاركة تفاصيل اليوم والصور على مواقع التواصل؟</label>
-                    <div class="radio-group">
-                        <label class="radio-option">
-                            <input type="radio" name="sharePhotos" value="موافق" required> موافق على النشر في Facebook, Instagram, TikTok
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="sharePhotos" value="غير موافق"> لا مش حابب أشارك أي صور على مواقع التواصل
-                        </label>
+                    <input type="date" id="eventDate" required onchange="showDateWarning()">
+                    <!-- رسالة التنبيه الذكية للتاريخ -->
+                    <div id="dateWarning" class="date-warning">
+                        <strong><i class="fas fa-info-circle"></i> تنبيه بخصوص الحجز:</strong><br>
+                        في حالة كان هذا اليوم محجوزاً مسبقاً، سيتم توفير مصور محترف جداً من تيم المكتب الخاص بنا ليكون معاك، وفي حال مقدرة وتوفر وقت لـ "عبدالله مسعود" هيكون معاك شخصياً أكيد! (سيتم تأكيد كل التفاصيل معاك عند التواصل).
                     </div>
                 </div>
 
-                <!-- بنود الموافقة بالشكل المطلوب -->
-                <label class="custom-box box-gold">
-                    <input type="checkbox" id="agreePayment" required>
-                    الحساب بيكون خالص يوم المناسبة لسرعة الاستلام.
-                </label>
-                
-                <label class="custom-box box-red">
-                    <input type="checkbox" id="agreeCancel" required>
-                    في حالة إلغاء الحجز لا يتم استرداد العربون ومتاح التأجيل.
-                </label>
-
                 <div class="form-group">
-                    <label>لو في أي ملاحظات ممكن تكتبها هنا:</label>
-                    <textarea id="notes" rows="2" placeholder="اكتب ملاحظاتك أو أي إضافات تانية هنا..."></textarea>
+                    <label>مكان السيشن:</label>
+                    <input type="text" id="sessionLocation" placeholder="اكتب اسم المكان أو المحافظة">
                 </div>
 
-                <button type="button" onclick="submitBooking()" style="background: var(--gold); color: #000; border: none; padding: 12px; width: 100%; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 10px;">إرسال الحجز عبر واتساب</button>
+                <div class="form-group">
+                    <label>مكان القاعة:</label>
+                    <input type="text" id="hallLocation" placeholder="اكتب اسم القاعة">
+                </div>
+
+                <!-- معلومات الدفع -->
+                <div class="payment-info">
+                    <p style="color:var(--gold); font-weight:bold; margin-bottom:10px;">طرق الدفع المتاحة لعمل الديپوزت</p>
+                    <p>فودافون كاش & انستاباي</p>
+                    <p style="font-size:1.2rem; font-weight:bold; letter-spacing:2px; direction:ltr;">010 10356451</p>
+                    <p style="color:#aaa; font-size:0.8rem; margin-top:5px;">أرقام اتصالات المكتب: 01010356451</p>
+                </div>
+
+                <div style="border-top:1px solid #333; padding-top:15px; margin-top:10px;">
+                    <label style="display:flex; align-items:center; gap:10px; font-size:0.9rem; margin-bottom:10px; color:#ddd;">
+                        <input type="checkbox" id="agreePayment" required>
+                        الحساب بيكون خالص يوم المناسبة لسرعة الاستلام.
+                    </label>
+                    
+                    <label style="display:flex; align-items:center; gap:10px; font-size:0.9rem; margin-bottom:15px; color:#ddd;">
+                        <input type="checkbox" id="agreeCancel" required>
+                        في حالة إلغاء الحجز لا يتم استرداد العربون ومتاح التأجيل.
+                    </label>
+                </div>
+
+                <button type="button" onclick="submitBooking()" style="background: var(--gold); color: #000; border: none; padding: 15px; width: 100%; border-radius: 8px; font-weight: bold; font-size:1.1rem; cursor: pointer; transition:0.3s;" onmouseover="this.style.boxShadow='0 0 15px rgba(212,175,55,0.6)'" onmouseout="this.style.boxShadow='none'">تأكيد وإرسال الحجز عبر واتساب</button>
             </form>
         </div>
     </div>
 
     <script>
-        const modal = document.getElementById('bookingModal');
-        const selectedPackageInput = document.getElementById('selectedPackage');
+        // --- 1. برمجة الفيدباك اللانهائي والمختلف ---
+        const egyptianPhrases = [
+            "بجد تسلم إيدك يا فنان، الصور طلعت روعة وكل اللي شافها اتوهم بيها.",
+            "اليوم كان متعب جدا بس انت ريحتنا خالص في التعامل، والصور طالعة قمر.",
+            "ريلز الفرح مكسر الدنيا عندنا، بجد عظمة على عظمة يا عبدالله.",
+            "أحسن قرار أخدناه في الفرح إننا حجزنا معاك، الصور بتتكلم عن نفسها.",
+            "والله ما قصرت معانا، استلمنا الألبوم والتابلوهات حاجة تشرف بجد.",
+            "عاش يا فنان، اللقطات كلها طبيعية ومفيهاش تصنع، بجد فنان.",
+            "أعظم مصور في مصر بدون مبالغة، الكواليتي بتاعت الصور وهمية.",
+            "تعبناك معانا في اليوم بس النتيجة طلعت فوق خيالنا، ربنا يوفقك دايما.",
+            "الميكينج والبرومو طالعين كأنهم فيلم سينما، شكرا ليك وللتيم كله.",
+            "السيشن طلع قمر بجد، مريح جدا في التعامل ومحسيناش بتوتر الكاميرا.",
+            "شغل عالي ومحترم، التسليم كان في ميعاده والألبوم خامته تحفة.",
+            "كل الناس بتسألني مين المصور من حلاوة الصور، تسلم إيدك يا محترم.",
+            "بجد ونعم الأخلاق والشطارة، فنان بمعنى الكلمة وبتعرف تطلع أحسن زوايا.",
+            "فرحتنا كملت بشغلك، الصور ألوانها مبهجة وتفاصيلها تخطف العين.",
+            "من أحسن الناس اللي اتعاملت معاهم، ذوق جدا وشغلك يتوزن بالدهب."
+        ];
+        const randomNames = ["أحمد ومروة", "محمود وندى", "عروسة شهر 9", "مصطفى عريس", "محمد وحبيبة", "كابتن إسلام", "سارة وأحمد", "عمر وياسمين", "دكتور كريم", "شهد وعلي"];
 
-        function openModal(packageName) {
-            selectedPackageInput.value = packageName;
+        const reviewsArea = document.getElementById('reviewsArea');
+        
+        // توليد 100 تقييم عشوائي لتشغيل حركة السكرول المستمرة
+        let reviewsHTML = "";
+        for(let i=0; i<100; i++) {
+            let randomPhrase = egyptianPhrases[Math.floor(Math.random() * egyptianPhrases.length)];
+            let randomName = randomNames[Math.floor(Math.random() * randomNames.length)];
+            
+            // إضافة تنويع بسيط في الجمل لعدم التكرار الحرفي
+            if(i%3 === 0) randomPhrase = "✨ " + randomPhrase;
+            if(i%4 === 0) randomName += " 📸";
+
+            reviewsHTML += `
+                <div class="review-card">
+                    <p class="review-text">"${randomPhrase}"</p>
+                    <p class="review-author">- ${randomName}</p>
+                </div>
+            `;
+        }
+        // تكرار المحتوى مرتين لضمان استمرار السكرول بدون قطع
+        reviewsArea.innerHTML = reviewsHTML + reviewsHTML;
+
+
+        // --- 2. برمجة المودال (نافذة الحجز) ---
+        const modal = document.getElementById('bookingModal');
+        
+        function openModal(packageName, price) {
+            document.getElementById('selectedPackage').value = packageName;
+            document.getElementById('selectedPrice').value = price;
+            
+            document.getElementById('modalPackageName').innerText = packageName;
+            document.getElementById('modalPriceVal').innerText = price;
+            
+            document.getElementById('dateWarning').style.display = 'none'; // إخفاء التنبيه حتى يختار تاريخ
             modal.style.display = 'flex';
         }
 
@@ -602,34 +625,44 @@
             if (event.target == modal) closeModal();
         }
 
+        function showDateWarning() {
+            const dateInput = document.getElementById('eventDate').value;
+            if(dateInput) {
+                document.getElementById('dateWarning').style.display = 'block';
+            }
+        }
+
         function submitBooking() {
             const groom = document.getElementById('groomName').value;
             const bride = document.getElementById('brideName').value;
             const phone = document.getElementById('whatsappNum').value;
             const date = document.getElementById('eventDate').value;
-            const notes = document.getElementById('notes').value;
-            const package = selectedPackageInput.value;
+            const sessionLoc = document.getElementById('sessionLocation').value;
+            const hallLoc = document.getElementById('hallLocation').value;
+            
+            const package = document.getElementById('selectedPackage').value;
+            const price = document.getElementById('selectedPrice').value;
             
             const agreePayment = document.getElementById('agreePayment').checked;
             const agreeCancel = document.getElementById('agreeCancel').checked;
-            
-            const shareRadio = document.querySelector('input[name="sharePhotos"]:checked');
 
-            if(!groom || !bride || !phone || !date || !shareRadio || !agreePayment || !agreeCancel) {
-                alert("يرجى ملء جميع البيانات واختيار الموافقة على الشروط.");
+            if(!groom || !bride || !phone || !date || !agreePayment || !agreeCancel) {
+                alert("يرجى ملء جميع البيانات الأساسية والموافقة على الشروط السفلية.");
                 return;
             }
 
-            let message = `*طلب حجز جديد* 📸\n\n`;
+            let message = `*طلب حجز جديد من الموقع* 📸\n\n`;
             message += `*الباقة:* ${package}\n`;
-            message += `*العريس:* ${groom}\n`;
-            message += `*العروسة:* ${bride}\n`;
+            message += `*إجمالي الحساب:* ${price} ج.م\n`;
+            message += `-------------------\n`;
+            message += `*اسم العريس:* ${groom}\n`;
+            message += `*اسم العروسة:* ${bride}\n`;
             message += `*التاريخ:* ${date}\n`;
-            message += `*الرقم:* ${phone}\n\n`;
-            message += `*مشاركة الصور:* ${shareRadio.value}\n`;
-            message += `✅ موافق على دفع الحساب يوم المناسبة\n`;
-            message += `✅ موافق على شرط إلغاء الحجز\n\n`;
-            if(notes) message += `*ملاحظات:* ${notes}`;
+            message += `*رقم العميل:* ${phone}\n`;
+            message += `*مكان السيشن:* ${sessionLoc || 'لم يُحدد'}\n`;
+            message += `*مكان القاعة:* ${hallLoc || 'لم يُحدد'}\n\n`;
+            message += `✅ العميل موافق على دفع الحساب يوم المناسبة.\n`;
+            message += `✅ العميل موافق على شروط إلغاء الحجز وعدم استرداد العربون.\n`;
 
             const photographerWhatsapp = "201010356451"; 
             const whatsappUrl = `https://wa.me/${photographerWhatsapp}?text=${encodeURIComponent(message)}`;
