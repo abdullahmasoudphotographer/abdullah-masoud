@@ -30,84 +30,19 @@
             line-height: 1.6;
         }
 
-        /* الهيدر وصورة الخلفية والبروفايل */
+        /* الهيدر وصورة الخلفية */
         header {
-            /* قم بتغيير رابط الصورة بين القوسين لتعيين صورة الخلفية */
             background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.9)), url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
-            padding: 4rem 1rem 2rem;
+            padding: 6rem 1rem 4rem;
             text-align: center;
             border-bottom: 2px solid var(--gold);
         }
 
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 4px solid var(--gold);
-            object-fit: cover;
-            margin-bottom: 1rem;
-            /* قم بتغيير هذا الرابط لصورة البروفايل الخاصة بك */
-            background-image: url('https://via.placeholder.com/150'); 
-        }
-
         header h1 {
             color: var(--gold);
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 0.5rem;
             letter-spacing: 2px;
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-            direction: ltr; /* لضبط الانجليزي */
-        }
-
-        .badge {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid var(--gold);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: var(--gold);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        /* تنسيق قسم الأيقونات */
-        .social-icons-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 25px 0;
-            flex-wrap: wrap;
-            direction: ltr; /* لضبط اتجاه الأيقونات */
-        }
-
-        .social-icon {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 50px;
-            height: 50px;
-            background-color: var(--card-bg);
-            color: var(--text-light);
-            border: 2px solid var(--gold);
-            border-radius: 50%;
-            text-decoration: none;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-icon:hover {
-            background-color: var(--gold);
-            color: #000;
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
         }
 
         .section-title {
@@ -252,6 +187,115 @@
             font-size: 0.9rem;
         }
 
+        /* قسم التواصل السفلي */
+        .contact-section {
+            background-color: var(--card-bg);
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #333;
+        }
+
+        .contact-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .social-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: var(--text-light);
+            background: var(--bg-color);
+            padding: 12px 20px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            border-color: var(--gold);
+            transform: translateX(-10px); /* حركة لليسار عند المرور */
+            box-shadow: 0 4px 10px rgba(212, 175, 55, 0.1);
+        }
+
+        .social-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 35px; /* حجم صغير */
+            height: 35px; /* حجم صغير */
+            background-color: var(--bg-color);
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover .social-icon {
+            background-color: var(--gold);
+            color: #000;
+        }
+
+        .social-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .contact-badges {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            direction: ltr; /* لضبط الأرقام والانجليزي */
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px dashed var(--gold);
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            color: var(--gold);
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* الفوتر والمطور */
+        footer {
+            text-align: center;
+            padding: 20px 10px;
+            background-color: var(--card-bg);
+        }
+        
+        .dev-credit {
+            margin-top: 15px;
+            font-size: 0.75rem;
+            color: #666;
+        }
+        
+        .dev-credit a {
+            color: #888;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .dev-credit a:hover {
+            color: var(--gold);
+        }
+
         /* مودال الحجز (Pop-up) */
         .modal-overlay {
             display: none;
@@ -338,56 +382,14 @@
             font-size: 0.85rem;
         }
 
-        /* الفوتر والمطور */
-        footer {
-            text-align: center;
-            padding: 30px 10px 15px;
-            margin-top: 50px;
-            background-color: var(--card-bg);
-            border-top: 1px solid #333;
-        }
-        
-        .dev-credit {
-            margin-top: 15px;
-            font-size: 0.75rem;
-            color: #666;
-        }
-        
-        .dev-credit a {
-            color: #888;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .dev-credit a:hover {
-            color: var(--gold);
-        }
-
     </style>
 </head>
 <body>
 
     <!-- الهيدر -->
     <header>
-        <img src="صورة_البروفايل_هنا.jpg" alt="Abdallah Masoud" class="profile-img" id="profileImg">
         <h1>ABDALLAH MASOUD</h1>
-        <p style="color: var(--text-muted); font-size: 1.2rem;">P H O T O G R A P H E R</p>
-        
-        <!-- معلومات الدفع والتواصل -->
-        <div class="contact-info">
-            <div class="badge">WhatsApp: +20 10 10356451</div>
-            <div class="badge">Vodafone Cash: +20 10 10356451</div>
-            <div class="badge">InstaPay Accepted</div>
-        </div>
-
-        <!-- الأيقونات الاجتماعية -->
-        <div class="social-icons-container">
-            <!-- استبدل علامة # بروابط صفحاتك الحقيقية -->
-            <a href="#" class="social-icon" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-icon" target="_blank"><i class="fab fa-tiktok"></i></a>
-            <a href="https://wa.me/201010356451" class="social-icon" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        </div>
+        <p style="color: var(--text-muted); font-size: 1.2rem; letter-spacing: 4px;">P H O T O G R A P H E R</p>
     </header>
 
     <!-- الباقات الرئيسية -->
@@ -527,6 +529,43 @@
         <div class="review-card">
             <p class="review-text">"يا فنان، بجد كل اللي شاف الصور سألني مين المصور، استلمنا الألبوم والتابلوهات حاجة تفرح بجد."</p>
             <p class="review-author">- محمد وحبيبة</p>
+        </div>
+    </div>
+
+    <!-- قسم التواصل والروابط -->
+    <div class="contact-section">
+        <h2 class="section-title">تواصل معنا</h2>
+        
+        <div class="contact-wrapper">
+            <!-- قائمة السوشيال ميديا بشكل عمودي ومنظم -->
+            <div class="social-list">
+                <a href="https://www.facebook.com/profile.php?id=100071408364892" target="_blank" class="social-link">
+                    <span class="social-icon"><i class="fab fa-facebook-f"></i></span>
+                    <span class="social-text">لمتابعة أعمالنا على فيسبوك</span>
+                </a>
+                
+                <a href="https://www.instagram.com/abdullah_maseud?igsh=NXB6b3B6cjJhYmF2&utm_source=qr" target="_blank" class="social-link">
+                    <span class="social-icon"><i class="fab fa-instagram"></i></span>
+                    <span class="social-text">لمتابعة أعمالنا على إنستجرام</span>
+                </a>
+
+                <a href="https://www.tiktok.com/@abood_foto" target="_blank" class="social-link">
+                    <span class="social-icon"><i class="fab fa-tiktok"></i></span>
+                    <span class="social-text">لمتابعة فيديوهاتنا على تيك توك</span>
+                </a>
+
+                <a href="https://api.whatsapp.com/send/?phone=201010356451&text&type=phone_number&app_absent=0" target="_blank" class="social-link">
+                    <span class="social-icon"><i class="fab fa-whatsapp"></i></span>
+                    <span class="social-text">للحجز والاستفسار عبر واتساب</span>
+                </a>
+            </div>
+
+            <!-- معلومات الدفع والتواصل كأرقام -->
+            <div class="contact-badges">
+                <div class="badge">WhatsApp: +20 10 10356451</div>
+                <div class="badge">Vodafone Cash: +20 10 10356451</div>
+                <div class="badge">InstaPay Accepted</div>
+            </div>
         </div>
     </div>
 
