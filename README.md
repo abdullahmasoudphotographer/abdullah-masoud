@@ -14,7 +14,7 @@
             --gold-glow: rgba(212, 175, 55, 0.6);
             --text-light: #ffffff;
             --text-muted: #cccccc;
-            --glass-bg: rgba(20, 20, 20, 0.45); /* زجاجي أكثر شفافية */
+            --glass-bg: rgba(20, 20, 20, 0.45); 
             --glass-border: rgba(255, 255, 255, 0.1);
         }
 
@@ -26,7 +26,6 @@
         }
 
         body {
-            /* خلفية متدرجة متحركة فخمة */
             background: linear-gradient(-45deg, #0a0a0a, #1a1710, #05080f, #121212);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
@@ -41,7 +40,6 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* هيدر بسيط */
         header {
             padding: 4rem 1rem 2rem;
             text-align: center;
@@ -65,7 +63,6 @@
             text-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
         }
 
-        /* حاوية الباقات */
         .packages-container {
             max-width: 900px;
             margin: 0 auto;
@@ -75,7 +72,6 @@
             gap: 25px;
         }
 
-        /* تصميم الكارت الزجاجي المضيء (Advanced Glassmorphism) */
         .package-card {
             background: var(--glass-bg);
             backdrop-filter: blur(16px);
@@ -92,14 +88,12 @@
             overflow: hidden;
         }
 
-        /* تأثير الإضاءة (Glow) عند الوقوف بالماوس */
         .package-card:hover {
             border-color: var(--gold);
             transform: translateY(-8px);
             box-shadow: 0 15px 35px var(--gold-glow), inset 0 0 20px rgba(212, 175, 55, 0.1);
         }
 
-        /* لمعة متحركة داخل الكارت */
         .package-card::before {
             content: '';
             position: absolute;
@@ -109,210 +103,69 @@
             transform: skewX(-25deg);
             transition: all 0.7s ease;
         }
-        .package-card:hover::before {
-            left: 150%;
-        }
+        .package-card:hover::before { left: 150%; }
 
-        .package-content {
-            flex: 1;
-            padding-left: 20px;
-            z-index: 1;
-        }
-
-        .package-title {
-            font-size: 1.5rem;
-            color: #fff;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
+        .package-content { flex: 1; padding-left: 20px; z-index: 1; }
+        .package-title { font-size: 1.5rem; color: #fff; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
         .package-title i { color: var(--gold); }
         .package-desc { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px; }
         .package-features { list-style: none; }
         .package-features li { font-size: 0.95rem; color: #eee; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
         .package-features li i { color: var(--gold); font-size: 0.8rem; }
 
-        .package-action {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            min-width: 160px;
-            z-index: 1;
-        }
+        .package-action { display: flex; flex-direction: column; align-items: center; gap: 15px; min-width: 160px; z-index: 1; }
+        .price-box { background: rgba(212, 175, 55, 0.9); color: #000; padding: 12px 20px; border-radius: 8px; font-weight: 800; font-size: 1.3rem; text-align: center; width: 100%; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4); }
+        .btn-book { background: rgba(0, 0, 0, 0.5); color: var(--gold); border: 1px solid var(--gold); padding: 10px 20px; font-size: 1.1rem; font-weight: bold; border-radius: 8px; cursor: pointer; width: 100%; transition: 0.3s; }
+        .btn-book:hover { background: var(--gold); color: #000; box-shadow: 0 0 15px var(--gold-glow); }
 
-        .price-box {
-            background: rgba(212, 175, 55, 0.9);
-            color: #000;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-weight: 800;
-            font-size: 1.3rem;
-            text-align: center;
-            width: 100%;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-        }
-
-        .btn-book {
-            background: rgba(0, 0, 0, 0.5);
-            color: var(--gold);
-            border: 1px solid var(--gold);
-            padding: 10px 20px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border-radius: 8px;
-            cursor: pointer;
-            width: 100%;
-            transition: 0.3s;
-        }
-
-        .btn-book:hover {
-            background: var(--gold);
-            color: #000;
-            box-shadow: 0 0 15px var(--gold-glow);
-        }
-
-        /* قسم العنوان */
-        .location-section {
-            background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border);
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            max-width: 900px;
-            margin: 40px auto;
-        }
-        .btn-map {
-            background-color: #a81c1c; color: #fff; text-decoration: none; padding: 12px 25px; border-radius: 8px; font-weight: bold; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s;
-        }
+        .location-section { background: var(--glass-bg); backdrop-filter: blur(16px); border: 1px solid var(--glass-border); border-radius: 15px; padding: 30px; text-align: center; max-width: 900px; margin: 40px auto; }
+        .btn-map { background-color: #a81c1c; color: #fff; text-decoration: none; padding: 12px 25px; border-radius: 8px; font-weight: bold; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; }
         .btn-map:hover { background-color: #c92a2a; box-shadow: 0 0 15px rgba(201, 42, 42, 0.5); }
 
-        /* الفيدباك اللانهائي (Clients Feedback) */
-        .reviews-wrapper {
-            max-width: 900px;
-            margin: 0 auto;
-            background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border);
-            border-radius: 15px;
-            padding: 20px;
-            overflow: hidden; /* لإخفاء السكرول */
-            position: relative;
-            height: 350px;
-        }
-
-        .reviews-scroll-area {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            animation: scrollReviews 40s linear infinite;
-        }
-
-        .reviews-wrapper:hover .reviews-scroll-area {
-            animation-play-state: paused;
-        }
-
-        @keyframes scrollReviews {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-50%); }
-        }
-
-        .review-card {
-            background: rgba(255, 255, 255, 0.03);
-            border-right: 3px solid var(--gold);
-            padding: 15px 20px;
-            border-radius: 8px;
-        }
+        .reviews-wrapper { max-width: 900px; margin: 0 auto; background: var(--glass-bg); backdrop-filter: blur(16px); border: 1px solid var(--glass-border); border-radius: 15px; padding: 20px; overflow: hidden; position: relative; height: 350px; }
+        .reviews-scroll-area { display: flex; flex-direction: column; gap: 15px; animation: scrollReviews 40s linear infinite; }
+        .reviews-wrapper:hover .reviews-scroll-area { animation-play-state: paused; }
+        @keyframes scrollReviews { 0% { transform: translateY(0); } 100% { transform: translateY(-50%); } }
+        .review-card { background: rgba(255, 255, 255, 0.03); border-right: 3px solid var(--gold); padding: 15px 20px; border-radius: 8px; }
         .review-text { font-style: italic; font-size: 1rem; margin-bottom: 10px; color: #eee; }
         .review-author { color: var(--gold); font-weight: bold; font-size: 0.9rem; }
 
-        /* السوشيال ميديا */
-        .social-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            max-width: 900px;
-            margin: 20px auto 40px;
-            padding: 0 20px;
-        }
-
-        .social-btn {
-            background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border);
-            color: #fff;
-            text-decoration: none;
-            padding: 15px;
-            border-radius: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
+        .social-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 900px; margin: 20px auto 40px; padding: 0 20px; }
+        .social-btn { background: var(--glass-bg); backdrop-filter: blur(16px); border: 1px solid var(--glass-border); color: #fff; text-decoration: none; padding: 15px; border-radius: 10px; display: flex; justify-content: center; align-items: center; gap: 10px; font-weight: bold; transition: 0.3s; }
         .social-btn:hover { border-color: var(--gold); background: rgba(212, 175, 55, 0.1); box-shadow: 0 0 15px var(--gold-glow); transform: translateY(-3px); }
         .social-btn.whatsapp { border-color: #25D366; }
         .social-btn.whatsapp i { color: #25D366; font-size: 1.2rem; }
 
-        .phones-box {
-            background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            border: 1px solid var(--gold);
-            border-radius: 10px;
-            padding: 20px;
-            max-width: 900px;
-            margin: 0 auto 40px;
-            text-align: center;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
-        }
+        .phones-box { background: var(--glass-bg); backdrop-filter: blur(16px); border: 1px solid var(--gold); border-radius: 10px; padding: 20px; max-width: 900px; margin: 0 auto 40px; text-align: center; box-shadow: 0 0 20px rgba(212, 175, 55, 0.15); }
         .phones-box h3 { color: var(--gold); margin-bottom: 10px; font-size: 1.3rem;}
         .phone-number { font-size: 1.5rem; font-weight: bold; letter-spacing: 2px; direction: ltr; }
 
-        /* المودال الزجاجي */
-        .modal-overlay {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); z-index: 1000;
-            justify-content: center; align-items: center;
-        }
-        .modal-content {
-            background: rgba(20, 20, 20, 0.9); backdrop-filter: blur(20px);
-            width: 90%; max-width: 550px; padding: 30px; border-radius: 15px;
-            border: 1px solid var(--gold); max-height: 90vh; overflow-y: auto;
-            position: relative; box-shadow: 0 0 30px rgba(212,175,55,0.2);
-        }
+        /* المودال الزجاجي وتفاصيل الفورم */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); z-index: 1000; justify-content: center; align-items: center; }
+        .modal-content { background: rgba(20, 20, 20, 0.9); backdrop-filter: blur(20px); width: 90%; max-width: 550px; padding: 30px; border-radius: 15px; border: 1px solid var(--gold); max-height: 90vh; overflow-y: auto; position: relative; box-shadow: 0 0 30px rgba(212,175,55,0.2); }
         .close-btn { position: absolute; top: 15px; left: 15px; background: none; border: none; color: var(--gold); font-size: 2rem; cursor: pointer; transition: 0.3s; }
         .close-btn:hover { transform: scale(1.2); }
         
-        .total-price-display {
-            background: rgba(212, 175, 55, 0.15); border: 1px dashed var(--gold);
-            padding: 15px; text-align: center; border-radius: 8px; margin-bottom: 20px;
-        }
+        .total-price-display { background: rgba(212, 175, 55, 0.15); border: 1px dashed var(--gold); padding: 15px; text-align: center; border-radius: 8px; margin-bottom: 20px; }
         .total-price-display h2 { color: var(--gold); margin: 0; font-size: 1.5rem; }
 
-        .form-group { margin-bottom: 15px; }
+        .form-group { margin-bottom: 15px; text-align: right; }
         .form-group label { display: block; margin-bottom: 5px; font-size: 0.95rem; color: #ddd; }
-        .form-group input, .form-group textarea {
-            width: 100%; padding: 12px; background: rgba(0,0,0,0.5); border: 1px solid #444; color: #fff; border-radius: 8px; transition: 0.3s;
-        }
+        .form-group input[type="text"], .form-group input[type="tel"], .form-group input[type="date"], .form-group textarea { width: 100%; padding: 12px; background: rgba(0,0,0,0.5); border: 1px solid #444; color: #fff; border-radius: 8px; transition: 0.3s; }
         .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 10px rgba(212,175,55,0.3); }
+        .form-group input[type="file"] { width: 100%; padding: 8px; background: rgba(0,0,0,0.3); border: 1px dashed var(--gold); color: #fff; border-radius: 8px; }
 
-        .date-warning {
-            display: none;
-            background: rgba(212, 175, 55, 0.1); border-right: 4px solid var(--gold);
-            padding: 12px; margin-top: 10px; font-size: 0.85rem; color: #eee; border-radius: 4px;
-            animation: fadeIn 0.5s ease;
-        }
+        .date-warning { display: none; background: rgba(212, 175, 55, 0.1); border-right: 4px solid var(--gold); padding: 15px; margin-top: 10px; font-size: 0.9rem; color: #eee; border-radius: 4px; animation: fadeIn 0.5s ease; text-align: right; line-height: 1.8;}
         @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
 
-        .payment-info {
-            background: rgba(0,0,0,0.4); border: 1px solid #333; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center;
-        }
-        .payment-info p { margin-bottom: 5px; font-size: 0.9rem; }
-        .payment-info img { height: 25px; vertical-align: middle; margin: 0 5px; }
+        .payment-info { background: rgba(0,0,0,0.4); border: 1px solid #333; padding: 20px; border-radius: 8px; margin-bottom: 20px; text-align: center; }
+        
+        .radio-group { background: rgba(0,0,0,0.3); border: 1px solid #333; padding: 15px; border-radius: 8px; margin-bottom: 15px; text-align: right; }
+        .radio-option { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 0.9rem; cursor: pointer; color: #eee; }
+        
+        .custom-box { display: flex; align-items: center; gap: 10px; padding: 12px; border-radius: 8px; margin-bottom: 15px; cursor: pointer; font-size: 0.9rem; text-align: right; color: #eee; }
+        .box-gold { border: 1px dashed var(--gold); background: rgba(212, 175, 55, 0.05); }
+        .box-red { border: 1px dashed #ff4444; background: rgba(255, 68, 68, 0.05); }
 
         @media (max-width: 768px) {
             .package-card { flex-direction: column; text-align: center; }
@@ -447,7 +300,7 @@
         </a>
     </div>
 
-    <!-- الفيدباك (Clients Feedback) -->
+    <!-- الفيدباك -->
     <h2 class="section-title">Clients Feedback <i class="fas fa-heart" style="color:var(--gold);"></i></h2>
     <div class="reviews-wrapper">
         <div class="reviews-scroll-area" id="reviewsArea">
@@ -519,8 +372,12 @@
                     <input type="date" id="eventDate" required onchange="showDateWarning()">
                     <!-- رسالة التنبيه الذكية للتاريخ -->
                     <div id="dateWarning" class="date-warning">
-                        <strong><i class="fas fa-info-circle"></i> تنبيه بخصوص الحجز:</strong><br>
-                        في حالة كان هذا اليوم محجوزاً مسبقاً، سيتم توفير مصور محترف جداً من تيم المكتب الخاص بنا ليكون معاك، وفي حال مقدرة وتوفر وقت لـ "عبدالله مسعود" هيكون معاك شخصياً أكيد! (سيتم تأكيد كل التفاصيل معاك عند التواصل).
+                        <strong><i class="fas fa-info-circle" style="color:var(--gold);"></i> تنبيه هام:</strong><br>
+                        في حالة كان هذا اليوم محجوزاً مسبقاً، سيتم توفير مصور محترف جداً من تيم المكتب الخاص بنا ليكون معاك، وفي حال مقدرة وتوفر وقت لـ "عبدالله مسعود" هيكون معاك شخصياً أكيد!
+                        <label style="display:flex; align-items:center; gap:8px; margin-top:15px; cursor:pointer; color:var(--gold); font-weight:bold;">
+                            <input type="checkbox" id="agreeDoubleBooking" required>
+                            موافق على هذا الترتيب لاستكمال الحجز
+                        </label>
                     </div>
                 </div>
 
@@ -534,33 +391,66 @@
                     <input type="text" id="hallLocation" placeholder="اكتب اسم القاعة">
                 </div>
 
-                <!-- معلومات الدفع -->
+                <!-- معلومات وطرق الدفع -->
                 <div class="payment-info">
-                    <p style="color:var(--gold); font-weight:bold; margin-bottom:10px;">طرق الدفع المتاحة لعمل الديپوزت</p>
-                    <p>فودافون كاش & انستاباي</p>
-                    <p style="font-size:1.2rem; font-weight:bold; letter-spacing:2px; direction:ltr;">010 10356451</p>
-                    <p style="color:#aaa; font-size:0.8rem; margin-top:5px;">أرقام اتصالات المكتب: 01010356451</p>
-                </div>
-
-                <div style="border-top:1px solid #333; padding-top:15px; margin-top:10px;">
-                    <label style="display:flex; align-items:center; gap:10px; font-size:0.9rem; margin-bottom:10px; color:#ddd;">
-                        <input type="checkbox" id="agreePayment" required>
-                        الحساب بيكون خالص يوم المناسبة لسرعة الاستلام.
-                    </label>
+                    <p style="color:var(--gold); font-weight:bold; margin-bottom:10px; font-size:1.1rem;">طرق الدفع (InstaPay & Vodafone Cash)</p>
+                    <div style="display:flex; justify-content:center; align-items:center; gap:15px; margin-bottom:15px;">
+                        <span style="font-size:1.6rem; font-weight:bold; letter-spacing:2px; direction:ltr;">01010356451</span>
+                        <button type="button" onclick="copyNumber()" style="background:var(--gold); color:#000; border:none; padding:8px 12px; border-radius:5px; cursor:pointer; font-weight:bold; font-size:0.9rem;"><i class="fas fa-copy"></i> Copy</button>
+                    </div>
                     
-                    <label style="display:flex; align-items:center; gap:10px; font-size:0.9rem; margin-bottom:15px; color:#ddd;">
-                        <input type="checkbox" id="agreeCancel" required>
-                        في حالة إلغاء الحجز لا يتم استرداد العربون ومتاح التأجيل.
-                    </label>
+                    <div class="form-group" style="text-align:right; border-top:1px dashed #444; padding-top:15px;">
+                        <label style="color:var(--gold);">إرفاق سكرين شوت التحويل:</label>
+                        <input type="file" id="transferReceipt" accept="image/*" required>
+                        <small style="color:#aaa; display:block; margin-top:5px; font-size:0.8rem;">* قم برفع صورة التحويل هنا، وسيتم إرسالها تلقائياً عند الضغط على تأكيد وإرسال.</small>
+                    </div>
                 </div>
 
-                <button type="button" onclick="submitBooking()" style="background: var(--gold); color: #000; border: none; padding: 15px; width: 100%; border-radius: 8px; font-weight: bold; font-size:1.1rem; cursor: pointer; transition:0.3s;" onmouseover="this.style.boxShadow='0 0 15px rgba(212,175,55,0.6)'" onmouseout="this.style.boxShadow='none'">تأكيد وإرسال الحجز عبر واتساب</button>
+                <!-- بنود الموافقة -->
+                <div class="form-group">
+                    <label style="color:var(--gold); font-weight:bold; font-size:1rem; margin-bottom:10px;">هل توافق على مشاركة تفاصيل اليوم والصور على مواقع التواصل؟</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="sharePhotos" value="موافق على النشر في Facebook, Instagram, TikTok" checked required>
+                            موافق على النشر في Facebook, Instagram, TikTok
+                        </label>
+                        <label class="radio-option" style="margin-top:10px;">
+                            <input type="radio" name="sharePhotos" value="لا مش حابب أشارك أي صور على مواقع التواصل">
+                            لا مش حابب أشارك أي صور على مواقع التواصل
+                        </label>
+                    </div>
+                </div>
+
+                <label class="custom-box box-gold">
+                    <input type="checkbox" id="agreePayment" required>
+                    الحساب بيكون خالص يوم المناسبة لسرعة الاستلام.
+                </label>
+                
+                <label class="custom-box box-red">
+                    <input type="checkbox" id="agreeCancel" required>
+                    في حالة إلغاء الحجز لا يتم استرداد العربون ومتاح التأجيل.
+                </label>
+
+                <!-- الملاحظات -->
+                <div class="form-group" style="margin-top:20px;">
+                    <label style="color:var(--gold);">الملاحظات:</label>
+                    <textarea id="notes" rows="3" placeholder="لو في اي تفاصيل لليوم العميل يكتبه ف الملاحظات... اكتب ملاحظاتك أو أي إضافات تانية هنا..."></textarea>
+                </div>
+
+                <button type="button" onclick="submitBooking()" style="background: var(--gold); color: #000; border: none; padding: 15px; width: 100%; border-radius: 8px; font-weight: bold; font-size:1.1rem; cursor: pointer; transition:0.3s; margin-top:10px;" onmouseover="this.style.boxShadow='0 0 15px rgba(212,175,55,0.6)'" onmouseout="this.style.boxShadow='none'">تأكيد وإرسال الحجز عبر واتساب</button>
             </form>
         </div>
     </div>
 
     <script>
-        // --- 1. برمجة الفيدباك اللانهائي والمختلف ---
+        // دالة نسخ الرقم
+        function copyNumber() {
+            navigator.clipboard.writeText("01010356451").then(() => {
+                alert("تم نسخ الرقم بنجاح!");
+            });
+        }
+
+        // توليد الفيدباك
         const egyptianPhrases = [
             "بجد تسلم إيدك يا فنان، الصور طلعت روعة وكل اللي شافها اتوهم بيها.",
             "اليوم كان متعب جدا بس انت ريحتنا خالص في التعامل، والصور طالعة قمر.",
@@ -581,55 +471,35 @@
         const randomNames = ["أحمد ومروة", "محمود وندى", "عروسة شهر 9", "مصطفى عريس", "محمد وحبيبة", "كابتن إسلام", "سارة وأحمد", "عمر وياسمين", "دكتور كريم", "شهد وعلي"];
 
         const reviewsArea = document.getElementById('reviewsArea');
-        
-        // توليد 100 تقييم عشوائي لتشغيل حركة السكرول المستمرة
         let reviewsHTML = "";
         for(let i=0; i<100; i++) {
             let randomPhrase = egyptianPhrases[Math.floor(Math.random() * egyptianPhrases.length)];
             let randomName = randomNames[Math.floor(Math.random() * randomNames.length)];
-            
-            // إضافة تنويع بسيط في الجمل لعدم التكرار الحرفي
             if(i%3 === 0) randomPhrase = "✨ " + randomPhrase;
             if(i%4 === 0) randomName += " 📸";
-
-            reviewsHTML += `
-                <div class="review-card">
-                    <p class="review-text">"${randomPhrase}"</p>
-                    <p class="review-author">- ${randomName}</p>
-                </div>
-            `;
+            reviewsHTML += `<div class="review-card"><p class="review-text">"${randomPhrase}"</p><p class="review-author">- ${randomName}</p></div>`;
         }
-        // تكرار المحتوى مرتين لضمان استمرار السكرول بدون قطع
         reviewsArea.innerHTML = reviewsHTML + reviewsHTML;
 
-
-        // --- 2. برمجة المودال (نافذة الحجز) ---
+        // إدارة المودال
         const modal = document.getElementById('bookingModal');
         
         function openModal(packageName, price) {
             document.getElementById('selectedPackage').value = packageName;
             document.getElementById('selectedPrice').value = price;
-            
             document.getElementById('modalPackageName').innerText = packageName;
             document.getElementById('modalPriceVal').innerText = price;
-            
-            document.getElementById('dateWarning').style.display = 'none'; // إخفاء التنبيه حتى يختار تاريخ
+            document.getElementById('dateWarning').style.display = 'none';
+            document.getElementById('agreeDoubleBooking').checked = false;
             modal.style.display = 'flex';
         }
 
-        function closeModal() {
-            modal.style.display = 'none';
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) closeModal();
-        }
+        function closeModal() { modal.style.display = 'none'; }
+        window.onclick = function(event) { if (event.target == modal) closeModal(); }
 
         function showDateWarning() {
             const dateInput = document.getElementById('eventDate').value;
-            if(dateInput) {
-                document.getElementById('dateWarning').style.display = 'block';
-            }
+            if(dateInput) { document.getElementById('dateWarning').style.display = 'block'; }
         }
 
         function submitBooking() {
@@ -639,15 +509,23 @@
             const date = document.getElementById('eventDate').value;
             const sessionLoc = document.getElementById('sessionLocation').value;
             const hallLoc = document.getElementById('hallLocation').value;
-            
             const package = document.getElementById('selectedPackage').value;
             const price = document.getElementById('selectedPrice').value;
+            const notes = document.getElementById('notes').value;
             
+            const agreeDoubleBooking = document.getElementById('agreeDoubleBooking');
             const agreePayment = document.getElementById('agreePayment').checked;
             const agreeCancel = document.getElementById('agreeCancel').checked;
+            const shareRadio = document.querySelector('input[name="sharePhotos"]:checked');
+            const receiptFile = document.getElementById('transferReceipt').files.length > 0;
 
-            if(!groom || !bride || !phone || !date || !agreePayment || !agreeCancel) {
-                alert("يرجى ملء جميع البيانات الأساسية والموافقة على الشروط السفلية.");
+            if(!groom || !bride || !phone || !date || !agreePayment || !agreeCancel || !receiptFile) {
+                alert("يرجى ملء جميع البيانات الأساسية، وإرفاق سكرين شوت التحويل، والموافقة على الشروط السفلية.");
+                return;
+            }
+
+            if(document.getElementById('dateWarning').style.display === 'block' && !agreeDoubleBooking.checked) {
+                alert("يرجى الموافقة على ترتيب تواجد المصور في حال كان اليوم محجوزاً مسبقاً.");
                 return;
             }
 
@@ -661,8 +539,12 @@
             message += `*رقم العميل:* ${phone}\n`;
             message += `*مكان السيشن:* ${sessionLoc || 'لم يُحدد'}\n`;
             message += `*مكان القاعة:* ${hallLoc || 'لم يُحدد'}\n\n`;
+            message += `*مشاركة الصور:* ${shareRadio.value}\n`;
             message += `✅ العميل موافق على دفع الحساب يوم المناسبة.\n`;
             message += `✅ العميل موافق على شروط إلغاء الحجز وعدم استرداد العربون.\n`;
+            if(agreeDoubleBooking.checked) message += `✅ العميل موافق على ترتيب تواجد تيم المكتب في حال كان اليوم محجوزاً.\n`;
+            if(receiptFile) message += `\n📎 *ملاحظة هامة:* العميل قام برفع سكرين شوت التحويل، برجاء التأكيد عليه بإرسال الصورة في هذه المحادثة.\n`;
+            if(notes) message += `\n*ملاحظات إضافية:* ${notes}`;
 
             const photographerWhatsapp = "201010356451"; 
             const whatsappUrl = `https://wa.me/${photographerWhatsapp}?text=${encodeURIComponent(message)}`;
